@@ -3,9 +3,16 @@ package org.jbguilib.window;
 import org.lwjgl.system.MemoryStack;
 import org.lwjgl.system.MemoryUtil;
 
+import static org.lwjgl.glfw.GLFW.glfwSetCursorPosCallback;
+import static org.lwjgl.glfw.GLFW.glfwSetKeyCallback;
+import static org.lwjgl.glfw.GLFW.glfwSetMouseButtonCallback;
+import static org.lwjgl.glfw.GLFW.glfwSetScrollCallback;
+
 import java.nio.IntBuffer;
 
 import org.jbguilib.color.ColorRGBA;
+import org.jbguilib.listener.KeyListener;
+import org.jbguilib.listener.MouseListener;
 import org.jbguilib.positioning.PixelDimension;
 import org.lwjgl.glfw.Callbacks;
 import org.lwjgl.glfw.GLFW;
@@ -86,7 +93,7 @@ public class Window {
 
   private boolean centered, resizable, visible, maximized, borderless;
   private ColorRGBA backgroundColor;
-  private PixelDimension windowDimensions;
+  private static PixelDimension windowDimensions;
   private String title;
   private long window;
 
@@ -97,7 +104,7 @@ public class Window {
     this.visible = visible;
     this.maximized = maximized;
     this.backgroundColor = backgroundColor;
-    this.windowDimensions = windowDimensions;
+    Window.windowDimensions = windowDimensions;
     this.title = title;
     this.borderless = borderless;
   }
@@ -114,7 +121,7 @@ public class Window {
     GLFW.glfwWindowHint(GLFW.GLFW_DECORATED, (!this.borderless ? 1 : 0)); 
     GLFW.glfwWindowHint(GLFW.GLFW_MAXIMIZED, (this.maximized ? 1 : 0));
 
-		window = GLFW.glfwCreateWindow(this.windowDimensions.getWidth(), this.windowDimensions.getHeight(), this.title, MemoryUtil.NULL, MemoryUtil.NULL);
+		window = GLFW.glfwCreateWindow(Window.windowDimensions.getWidth(), Window.windowDimensions.getHeight(), this.title, MemoryUtil.NULL, MemoryUtil.NULL);
 		if ( window == MemoryUtil.NULL )
 			throw new RuntimeException("Failed to create the GLFW window");
 
@@ -132,6 +139,11 @@ public class Window {
         );
       }
 		} 
+
+    glfwSetCursorPosCallback(window, MouseListener::mousePosCallback);
+    glfwSetMouseButtonCallback(window, MouseListener::mouseButtonCallback);
+    glfwSetScrollCallback(window, MouseListener::mouseScrollCallback);
+    glfwSetKeyCallback(window, KeyListener::KeyCallback);
 
 		GLFW.glfwMakeContextCurrent(window);
     GLFW.glfwSwapInterval(1); 
