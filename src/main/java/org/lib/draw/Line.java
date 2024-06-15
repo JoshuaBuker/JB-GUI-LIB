@@ -1,10 +1,10 @@
-package org.jbguilib.lib.draw;
+package org.lib.draw;
 
-import org.jbguilib.lib.color.ColorRGBA;
-import org.jbguilib.lib.positioning.PercentPoint;
-import org.jbguilib.lib.positioning.PixelDimension;
-import org.jbguilib.lib.positioning.PixelPoint;
-import org.jbguilib.lib.util.Util;
+import org.lib.color.ColorRGBA;
+import org.lib.positioning.PercentPoint;
+import org.lib.positioning.PixelDimension;
+import org.lib.positioning.PixelPoint;
+import org.lib.util.Util;
 import org.lwjgl.opengl.GL11;
 
 public class Line {

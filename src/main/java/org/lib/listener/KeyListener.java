@@ -1,4 +1,4 @@
-package org.jbguilib.lib.listener;
+package org.lib.listener;
 
 import static org.lwjgl.glfw.GLFW.GLFW_PRESS;
 import static org.lwjgl.glfw.GLFW.GLFW_RELEASE;

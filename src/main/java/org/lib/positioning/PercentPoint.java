@@ -1,4 +1,4 @@
-package org.jbguilib.lib.positioning;
+package org.lib.positioning;
 
 public class PercentPoint {
   private float x, y;

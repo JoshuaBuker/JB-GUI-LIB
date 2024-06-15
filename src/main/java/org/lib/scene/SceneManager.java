@@ -1,4 +1,4 @@
-package org.jbguilib.lib.scene;
+package org.lib.scene;
 
 import java.util.*;
 

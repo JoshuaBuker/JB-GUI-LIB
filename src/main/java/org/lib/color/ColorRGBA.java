@@ -1,4 +1,4 @@
-package org.jbguilib.lib.color;
+package org.lib.color;
 
 public class ColorRGBA {
   private short red, blue, green;

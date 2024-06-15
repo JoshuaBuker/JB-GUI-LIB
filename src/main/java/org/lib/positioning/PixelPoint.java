@@ -1,4 +1,4 @@
-package org.jbguilib.lib.positioning;
+package org.lib.positioning;
 
 public class PixelPoint {
   private short x, y;

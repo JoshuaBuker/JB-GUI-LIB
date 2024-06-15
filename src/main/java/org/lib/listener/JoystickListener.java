@@ -1,4 +1,4 @@
-package org.jbguilib.lib.listener;
+package org.lib.listener;
 
 public class JoystickListener {
   
