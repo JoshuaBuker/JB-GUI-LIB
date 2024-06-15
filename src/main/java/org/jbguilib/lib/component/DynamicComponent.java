@@ -1,4 +1,4 @@
-package org.jbguilib.component;
+package org.jbguilib.lib.component;
 
 public abstract class DynamicComponent extends StaticComponent {
   private float GRAVITY = 10;

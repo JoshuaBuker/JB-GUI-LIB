@@ -1,8 +1,8 @@
 package org.jbguilib;
 
-import org.jbguilib.scene.Scene;
-import org.jbguilib.scene.SceneManager;
-import org.jbguilib.window.Window;
+import org.jbguilib.lib.scene.Scene;
+import org.jbguilib.lib.scene.SceneManager;
+import org.jbguilib.lib.window.Window;
 
 public class Main {
 	public static void main(String[] args) {

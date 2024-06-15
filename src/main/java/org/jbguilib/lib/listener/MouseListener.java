@@ -1,4 +1,4 @@
-package org.jbguilib.listener;
+package org.jbguilib.lib.listener;
 
 import static org.lwjgl.glfw.GLFW.*;
 

@@ -1,4 +1,4 @@
-package org.jbguilib.window;
+package org.jbguilib.lib.window;
 
 import org.lwjgl.system.MemoryStack;
 import org.lwjgl.system.MemoryUtil;
@@ -10,11 +10,11 @@ import static org.lwjgl.glfw.GLFW.glfwSetScrollCallback;
 
 import java.nio.IntBuffer;
 
-import org.jbguilib.color.ColorRGBA;
-import org.jbguilib.listener.KeyListener;
-import org.jbguilib.listener.MouseListener;
-import org.jbguilib.positioning.PixelDimension;
-import org.jbguilib.scene.SceneManager;
+import org.jbguilib.lib.color.ColorRGBA;
+import org.jbguilib.lib.listener.KeyListener;
+import org.jbguilib.lib.listener.MouseListener;
+import org.jbguilib.lib.positioning.PixelDimension;
+import org.jbguilib.lib.scene.SceneManager;
 import org.lwjgl.glfw.Callbacks;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWErrorCallback;

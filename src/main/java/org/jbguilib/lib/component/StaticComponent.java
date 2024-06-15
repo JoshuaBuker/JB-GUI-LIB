@@ -1,9 +1,9 @@
-package org.jbguilib.component;
+package org.jbguilib.lib.component;
 
-import org.jbguilib.positioning.PercentDimension;
-import org.jbguilib.positioning.PercentPoint;
-import org.jbguilib.positioning.PixelDimension;
-import org.jbguilib.positioning.PixelPoint;
+import org.jbguilib.lib.positioning.PercentDimension;
+import org.jbguilib.lib.positioning.PixelDimension;
+import org.jbguilib.lib.positioning.PixelPoint;
+import org.jbguilib.lib.positioning.PercentPoint;
 
 public abstract class StaticComponent {
   private PixelDimension pixelDim;

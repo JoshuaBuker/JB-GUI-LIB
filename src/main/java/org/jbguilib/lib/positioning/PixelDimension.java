@@ -1,4 +1,4 @@
-package org.jbguilib.positioning;
+package org.jbguilib.lib.positioning;
 
 public class PixelDimension {
   private short width, height;

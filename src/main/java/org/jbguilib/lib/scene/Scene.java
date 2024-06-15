@@ -1,7 +1,7 @@
-package org.jbguilib.scene;
+package org.jbguilib.lib.scene;
 
-import org.jbguilib.component.StaticComponent;
-import org.jbguilib.component.DynamicComponent;
+import org.jbguilib.lib.component.StaticComponent;
+import org.jbguilib.lib.component.DynamicComponent;
 import java.util.*;
 
 public abstract class Scene {
