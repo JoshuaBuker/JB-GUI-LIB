@@ -13,6 +13,7 @@ import java.nio.IntBuffer;
 import org.jbguilib.color.ColorRGBA;
 import org.jbguilib.listener.KeyListener;
 import org.jbguilib.listener.MouseListener;
+import org.jbguilib.manager.SceneManager;
 import org.jbguilib.positioning.PixelDimension;
 import org.lwjgl.glfw.Callbacks;
 import org.lwjgl.glfw.GLFW;
@@ -157,6 +158,9 @@ public class Window {
 
 		while (!GLFW.glfwWindowShouldClose(window)) {
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT); 
+
+      SceneManager.getInstance().displaySceneFrame();
+
 			GLFW.glfwSwapBuffers(window); 
 			GLFW.glfwPollEvents();
 		}

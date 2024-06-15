@@ -1,5 +1,7 @@
 package org.jbguilib;
 
+import org.jbguilib.manager.SceneManager;
+import org.jbguilib.scene.Scene;
 import org.jbguilib.window.Window;
 
 public class Main {
@@ -8,6 +10,9 @@ public class Main {
       .title("Destroyer Of Worlds!")
       .backgroundColor(74, 73, 92)
       .build();
+    
+    Scene scene = new Scene("defaultScene") {};
+    SceneManager.getInstance().setActiveScene("defaultScene");
 
     window.run();
   }
