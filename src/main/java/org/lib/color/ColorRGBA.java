@@ -44,6 +44,7 @@ public class ColorRGBA {
     this.red = (short)red;
     this.blue = (short)blue;
     this.green = (short)green;
+    System.nanoTime();
   }
   
   public ColorRGBA(int red, int green, int blue, float alpha) {
