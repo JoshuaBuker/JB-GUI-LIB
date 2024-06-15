@@ -1,7 +1,6 @@
 package org.jbguilib.scene;
 
 import org.jbguilib.component.StaticComponent;
-import org.jbguilib.manager.SceneManager;
 import org.jbguilib.component.DynamicComponent;
 import java.util.*;
 
@@ -20,7 +19,7 @@ public abstract class Scene {
 
   public void applyPhysicsAndCollisions() {}
   public void applyEvents() {}
-  
+
   public void drawFrame() {
     for(StaticComponent comp : staticComponents) {
       comp.run();

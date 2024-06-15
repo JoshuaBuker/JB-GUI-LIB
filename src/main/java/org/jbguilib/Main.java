@@ -1,7 +1,7 @@
 package org.jbguilib;
 
-import org.jbguilib.manager.SceneManager;
 import org.jbguilib.scene.Scene;
+import org.jbguilib.scene.SceneManager;
 import org.jbguilib.window.Window;
 
 public class Main {

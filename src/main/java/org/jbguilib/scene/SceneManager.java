@@ -1,8 +1,6 @@
-package org.jbguilib.manager;
+package org.jbguilib.scene;
 
 import java.util.*;
-
-import org.jbguilib.scene.Scene;
 
 public class SceneManager {
   // =================== STATIC ============================
