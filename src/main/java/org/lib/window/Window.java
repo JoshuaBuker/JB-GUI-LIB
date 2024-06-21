@@ -3,11 +3,6 @@ package org.lib.window;
 import org.lwjgl.system.MemoryStack;
 import org.lwjgl.system.MemoryUtil;
 
-import static org.lwjgl.glfw.GLFW.glfwSetCursorPosCallback;
-import static org.lwjgl.glfw.GLFW.glfwSetKeyCallback;
-import static org.lwjgl.glfw.GLFW.glfwSetMouseButtonCallback;
-import static org.lwjgl.glfw.GLFW.glfwSetScrollCallback;
-
 import java.nio.IntBuffer;
 
 import org.lib.color.ColorRGBA;
@@ -75,6 +70,14 @@ public class Window {
       this.backgroundColor.setAlpha(alpha);
       return this;
     }
+
+    public Builder backgroundColor(ColorRGBA color) { 
+      this.backgroundColor.setRed(color.getRed255());
+      this.backgroundColor.setGreen(color.getGreen255());
+      this.backgroundColor.setBlue(color.getBlue255());
+      this.backgroundColor.setAlpha(color.getAlpha());
+      return this;
+    }
   
     public Builder windowDimensions(int width, int height) { 
       this.windowDimensions.setWidth(width);
@@ -97,6 +100,7 @@ public class Window {
   private static PixelDimension windowDimensions;
   private String title;
   private long window;
+  private SceneManager manager;
 
   public Window(boolean centered, boolean resizable, boolean visible, boolean maximized,
       ColorRGBA backgroundColor, PixelDimension windowDimensions, String title, boolean borderless) {
@@ -108,6 +112,15 @@ public class Window {
     Window.windowDimensions = windowDimensions;
     this.title = title;
     this.borderless = borderless;
+  }
+
+  private static void windowSizeCallback(long window, int width, int height) {
+    Window.windowDimensions.setWidth(width);
+    Window.windowDimensions.setHeight(height);
+  }
+
+  public static PixelDimension getSize() {
+    return windowDimensions;
   }
 
   private void init() {
@@ -141,10 +154,11 @@ public class Window {
       }
 		} 
 
-    glfwSetCursorPosCallback(window, MouseListener::mousePosCallback);
-    glfwSetMouseButtonCallback(window, MouseListener::mouseButtonCallback);
-    glfwSetScrollCallback(window, MouseListener::mouseScrollCallback);
-    glfwSetKeyCallback(window, KeyListener::KeyCallback);
+    GLFW.glfwSetCursorPosCallback(window, MouseListener::mousePosCallback);
+    GLFW.glfwSetMouseButtonCallback(window, MouseListener::mouseButtonCallback);
+    GLFW.glfwSetScrollCallback(window, MouseListener::mouseScrollCallback);
+    GLFW.glfwSetKeyCallback(window, KeyListener::KeyCallback);
+    GLFW.glfwSetWindowSizeCallback(window, Window::windowSizeCallback);
 
 		GLFW.glfwMakeContextCurrent(window);
     GLFW.glfwSwapInterval(1); 
@@ -159,14 +173,19 @@ public class Window {
 		while (!GLFW.glfwWindowShouldClose(window)) {
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT); 
 
-      SceneManager.getInstance().displaySceneFrame();
+      this.manager.displaySceneFrame();
 
 			GLFW.glfwSwapBuffers(window); 
 			GLFW.glfwPollEvents();
 		}
 	}
 
-	public void run() {
+  public void setSceneManager(SceneManager manager) {
+    this.manager = manager;
+  }
+
+	public void run(SceneManager manager) {
+    setSceneManager(manager);
 		init();
 		loop();
 

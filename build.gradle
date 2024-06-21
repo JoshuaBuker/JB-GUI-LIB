@@ -2,12 +2,8 @@ plugins {
     id 'java'
 }
 
-group = 'org.jbguilib'
+group = 'org.example'
 version = '1.0-SNAPSHOT'
-
-repositories {
-    mavenCentral()
-}
 
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')
@@ -18,11 +14,12 @@ test {
     useJUnitPlatform()
 }
 
-
-
 project.ext.lwjglVersion = "3.3.3"
 project.ext.lwjglNatives = "natives-windows"
 
+repositories {
+	mavenCentral()
+}
 
 dependencies {
 	implementation platform("org.lwjgl:lwjgl-bom:$lwjglVersion")

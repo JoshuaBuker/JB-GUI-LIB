@@ -18,7 +18,7 @@ public class Timer {
   }
 
   public long get() {
-    return (isRunning) ? startTime : endTime;
+    return (isRunning) ? startTime - System.currentTimeMillis() : startTime - endTime;
   }
 
   public void stop() {
